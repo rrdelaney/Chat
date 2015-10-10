@@ -10,18 +10,19 @@ export default function select(state) {
 
 function users(state) {
     return state.entities
-                .filter((entity) => entity.type === USER)
-                .map((entity, id) => {return { ...entity, id }});
+                .map((entity, id) => ({ ...entity, id }))
+                .filter(entity => entity.type === USER);
+
 }
 
 function messages(state) {
     return state.entities
-                .filter((entity) => entity.type === MESSAGE)
-                .map((entity, id) => {return { ...entity, id }});
+                .map((entity, id) => ({ ...entity, id }))
+                .filter(entity => entity.type === MESSAGE);
 }
 
 function rooms(state) {
     return state.entities
-                .filter((entity) => entity.type === ROOM)
-                .map((entity, id) => {return { ...entity, id }});
+                .map((entity, id) => ({ ...entity, id }))
+                .filter(entity => entity.type === ROOM);
 }

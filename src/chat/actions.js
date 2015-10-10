@@ -1,16 +1,16 @@
 export const USER = 'USER';
 export const ROOM = 'ROOM';
 export const MESSAGE = 'MESSAGE';
-export const SEND_MESSAGE = 'SEND_MESSAGE';
+export const ADD_MESSAGE = 'ADD_MESSAGE';
 export const CREATE_ROOM = 'CREATE_ROOM';
 export const CREATE_USER = 'CREATE_USER';
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 export const JOIN_ROOM = 'JOIN_ROOM';
 
-export function sendMessage(roomId, text, authorId) {
+export function addMessage(roomId, text, authorId) {
     return {
-        type: SEND_MESSAGE,
+        type: ADD_MESSAGE,
         roomId,
         text,
         authorId

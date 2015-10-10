@@ -1,21 +1,50 @@
 import { combineReducers } from 'redux';
 import { List, Set } from 'immutable';
-import { MESSAGE, ROOM, USER, SEND_MESSAGE, CREATE_ROOM, CREATE_USER, LOGIN, LOGOUT, JOIN_ROOM } from './actions';
+import { MESSAGE, ROOM, USER, ADD_MESSAGE, CREATE_ROOM, CREATE_USER, LOGIN, LOGOUT, JOIN_ROOM } from './actions';
 import { login, logout } from './login';
+import dataset from '../data';
 
 let homeroom = {
     name: 'Homeroom',
     type: ROOM
 };
 
+let initialEntities = (function getInitialEntities(dataset) {
+    let messageOwnership = [];
+    dataset.data.forEach(({user, message}) => {
+        messageOwnership[message.id] = user.id
+    });
+
+    return List(dataset.includes)
+            .sortBy(entity => entity.id)
+            .map(entity => {
+                switch (entity.type) {
+                    case 'message':
+                        return {
+                            roomId: 0,
+                            authorId: messageOwnership[entity.id],
+                            text: entity.text,
+                            type: MESSAGE
+                        };
+                    case "user":
+                        return {
+                            name: entity.name,
+                            type: USER
+                        };
+                    default:
+                        return undefined;
+                }
+            })
+            .unshift(homeroom)
+})(dataset);
+
 let initialState = {
-    id: undefined,
-    rooms: Set([0])
+    id: undefined
 };
 
-function entities(state = List([homeroom]), action) {
+function entities(state = List(initialEntities), action) {
     switch (action.type) {
-        case SEND_MESSAGE:
+        case ADD_MESSAGE:
             return state.push({
                 roomId: action.roomId,
                 authorId: action.authorId,

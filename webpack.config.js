@@ -20,6 +20,9 @@ module.exports = {
                 loader: 'style!css-loader?modules!cssnext-loader',
                 exclude: /node_modules/
             }, {
+                test: /\.json$/,
+                loader: 'json'
+            }, {
                 test: /\.css$/,
                 loader: 'style!css-loader!cssnext-loader',
                 exclude: /src/
@@ -33,7 +36,7 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['', '.jsx', '.js', '.json', '.ios.jsx', '.web.jsx', '.and,jsx'],
+        extensions: ['', '.jsx', '.js', '.json'],
         modulesDirectories: ['node_modules']
     }
 };
