@@ -26,3 +26,7 @@ function rooms(state) {
                 .map((entity, id) => ({ ...entity, id }))
                 .filter(entity => entity.type === ROOM);
 }
+
+function user(state) {
+    return state.app.userId;
+}

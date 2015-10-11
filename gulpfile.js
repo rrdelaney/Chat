@@ -6,7 +6,6 @@ let gutil = require('gulp-util');
 let webpack = require('webpack');
 let conf = require('./webpack.config');
 let build = require('./config');
-let WebpackDevServer = require('webpack-dev-server');
 let del = require('del');
 let express = require('express');
 
