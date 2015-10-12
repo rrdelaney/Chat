@@ -2,6 +2,7 @@
   "name": "chat",
   "version": "0.0.1",
   "author": "Ryan Delaney <rrdelaney@outlook.com>",
+  "repository": "https://github.com/rrdelaney/Chat",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^5.8.25",
