@@ -4,7 +4,9 @@ export default function select(state) {
     return {
         users: users(state),
         messages: messages(state),
-        rooms: rooms(state)
+        rooms: rooms(state),
+        user: user(state),
+        activeTab: activeTab(state)
     };
 }
 
@@ -29,4 +31,8 @@ function rooms(state) {
 
 function user(state) {
     return state.app.userId;
+}
+
+function activeTab(state) {
+    return state.app.activeTab;
 }

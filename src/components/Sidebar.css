@@ -1,0 +1,6 @@
+.sidebar {
+    height: 100vh;
+    flex-grow: 1;
+    flex-basis: auto;
+    min-width: 200px;
+}

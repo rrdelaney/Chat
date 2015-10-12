@@ -1,21 +1,6 @@
-.chatMessage {
-    background-color: blue;
-    border-radius: 10px;
-    color: white;
-    padding: 5px 10px;
-    max-width: 70%;
-    display: inline-block;
-}
-
-.messageContainer {
-    margin: 1rem .3rem;
-}
-
-.ownMessage {
-    justify-content: flex-end;
-    text-align: right;
-}
-
-.ownMessage .chatMessage {
-    background-color: black;
+.room {
+    flex-grow: 5;
+    height: 100vh;
+    overflow: scroll;
+    padding: 1rem 0 3.5rem 0;
 }

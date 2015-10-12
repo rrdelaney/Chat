@@ -7,6 +7,7 @@ export const CREATE_USER = 'CREATE_USER';
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 export const JOIN_ROOM = 'JOIN_ROOM';
+export const CHANGE_TAB = 'CHANGE_TAB';
 
 export function addMessage(roomId, text, authorId) {
     return {
@@ -50,5 +51,12 @@ export function joinRoom(roomId) {
     return {
         type: JOIN_ROOM,
         roomId
+    };
+}
+
+export function setActiveTab(tab) {
+    return {
+        type: CHANGE_TAB,
+        tab
     };
 }

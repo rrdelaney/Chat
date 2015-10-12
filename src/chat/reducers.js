@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { List, Set } from 'immutable';
-import { MESSAGE, ROOM, USER, ADD_MESSAGE, CREATE_ROOM, CREATE_USER, LOGIN, LOGOUT, JOIN_ROOM } from './actions';
+import { MESSAGE, ROOM, USER, ADD_MESSAGE, CREATE_ROOM, CREATE_USER, LOGIN, LOGOUT, JOIN_ROOM, CHANGE_TAB } from './actions';
 import { login, logout } from './login';
 import dataset from '../data';
 
@@ -39,7 +39,8 @@ let initialEntities = (function getInitialEntities(dataset) {
 })(dataset);
 
 let initialState = {
-    id: undefined
+    id: undefined,
+    activeTab: 'rooms'
 };
 
 function entities(state = List(initialEntities), action) {
@@ -86,9 +87,14 @@ function app(state = initialState, action) {
             }
         case JOIN_ROOM:
             return {
+                ...state,
                 id: state.id,
-                rooms: state.rooms.push(action.roomId)
             };
+        case CHANGE_TAB:
+            return {
+                ...state,
+                activeTab: action.tab
+            }
         default:
             return state;
     }

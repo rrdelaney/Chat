@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { ownMessage, chatMessage, messageContainer } from './Room.css';
+import { room } from './Room.css';
+import ChatBox from './ChatBox';
+import Message from './Message';
 
 export default class Room extends Component {
     render() {
@@ -8,14 +10,12 @@ export default class Room extends Component {
         ));
 
         return (
-            <div className="ui basic segment">{messages.map(message => (
-                <div key={message.id} className={[messageContainer, message.authorId === this.props.userId ? ownMessage : ''].join(' ')}>
-                    <p className={chatMessage}>
-                        {message.text}
-                    </p>
-                </div>
-
-            ))}</div>
+            <div className={room}>
+                {messages.map(message => (
+                    <Message key={message.id} authorId={message.authorId} userId={this.props.userId} text={message.text}/>
+                ))}
+                <ChatBox/>
+            </div>
         );
     }
 }
