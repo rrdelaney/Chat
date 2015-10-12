@@ -18,8 +18,17 @@ gulp.task('prepare', function(callback) {
    });
 });
 
-gulp.task('build', function(callback) {
-    webpack(conf, function(err, stats) {
+gulp.task('build', ['prepare'], function(callback) {
+    process.env.NODE_ENV = 'production';
+    let prodConf = Object.create(conf);
+
+    prodConf.plugins = prodConf.plugins || [];
+    prodConf.plugins.push(new webpack.optimize.UglifyJsPlugin());
+    prodConf.plugins.push(new webpack.DefinePlugin({
+        'NODE_ENV': 'production'
+    }));
+
+    webpack(prodConf, function(err, stats) {
         if (err) {
             throw new gutil.PluginError("webpack", err)
         }
@@ -32,7 +41,7 @@ gulp.task('build', function(callback) {
     });
 });
 
-gulp.task('debug', function() {
+gulp.task('debug', ['prepare'], function() {
     let devConf = Object.create(conf);
 
     devConf.plugins = devConf.plugins || [];
