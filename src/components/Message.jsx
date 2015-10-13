@@ -10,7 +10,7 @@ export default function Message({text, authorId, userId}) {
         </div>
     } else {
         return <div className={`${messageContainer}`}>
-            <p className={`${message} ui inverted teal segment`}>
+            <p className={`${message} ui inverted green segment`}>
                 {text}
             </p>
         </div>
