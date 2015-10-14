@@ -36,7 +36,7 @@ export default function Sidebar(props) {
 
     return (
         <div className={`${sidebar}`} style={{borderRight, position, height}}>
-            <div className={`${props.theme.sidebar} ui segment`} style={{height:'100%'}}>
+            <div className={`${props.theme.sidebar} ui segment`}>
                 <Tabs/>
                 <ActiveTabContent/>
             </div>

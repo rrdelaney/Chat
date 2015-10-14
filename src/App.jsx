@@ -15,8 +15,8 @@ export default class App extends Component {
         return (
             <div className={chatContainer}>
                 {!mobile ? null : <Navbar
-                                    theme={theme}
-                                    onToggleSidebar={() => dispatch(toggleSidebar())}/>
+                    theme={theme}
+                    onToggleSidebar={() => dispatch(toggleSidebar())}/>
                 }
                 <div className={chat}>
                     {!showSidebar ? null : <Sidebar
@@ -33,6 +33,7 @@ export default class App extends Component {
                         mobile={mobile}
                         roomId={0}
                         messages={messages}
+                        users={users}
                         userId={5}/>
                 </div>
             </div>

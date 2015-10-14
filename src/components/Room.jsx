@@ -4,10 +4,6 @@ import ChatBox from './ChatBox'
 import Message from './Message'
 
 export default class Room extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         let messages = this.props.messages.filter(message => (
             message.roomId === this.props.roomId
@@ -21,6 +17,7 @@ export default class Room extends Component {
                     theme={this.props.theme}
                     key={message.id}
                     authorId={message.authorId}
+                    authorName={this.props.users.find(user => user.id === message.authorId).name}
                     userId={this.props.userId}
                     text={message.text}/>
                 )}
