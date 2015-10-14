@@ -30,6 +30,7 @@ export default class App extends Component {
                         onToggleMobile={() => dispatch(toggleMobile())}/>
                     <Room
                         theme={theme}
+                        mobile={mobile}
                         roomId={0}
                         messages={messages}
                         userId={5}/>

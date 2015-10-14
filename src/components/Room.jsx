@@ -13,8 +13,10 @@ export default class Room extends Component {
             message.roomId === this.props.roomId
         ));
 
+        let height = this.props.mobile ? 'calc(100vh - 4rem)' : '100vh';
+
         return (
-            <div className={room}>
+            <div className={room} style={{height}}>
                 {messages.map(message => <Message
                     theme={this.props.theme}
                     key={message.id}
