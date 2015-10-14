@@ -3,53 +3,45 @@ import { sidebar } from './Sidebar.css'
 import RoomList from './RoomList'
 import Settings from './Settings'
 
-export default class Sidebar extends Component {
-    constructor(props) {
-        super(props);
+export default function Sidebar(props) {
+    let handleClick = (tabName) => () => props.onTabChange(tabName);
 
-        this.handleClick = this.handleClick.bind(this);
-    }
+    let Tabs = () => <div className={`${props.theme.sidebar} ui two item icon secondary pointing menu`}>
+        <a className={`${props.activeTab === 'rooms' ? 'active' : ''} item`} onClick={handleClick('rooms')}>
+            <i className="users icon"></i>
+        </a>
+        <a className={`${props.activeTab === 'settings' ? 'active' : ''} item`} onClick={handleClick('settings')}>
+            <i className="settings icon"></i>
+        </a>
+    </div>
 
-    handleClick(tabName) {
-        return () => this.props.onTabChange(tabName);
-    }
+    let ActiveTabContent = () => {
+        switch (props.activeTab) {
+            case 'rooms':
+                return <RoomList theme={props.theme} rooms={props.rooms}/>
+            case 'settings':
+                return <Settings
+                    theme={props.theme}
+                    mobile={props.mobile}
+                    onThemeChange={props.onThemeChange}
+                    onToggleMobile={props.onToggleMobile}/>
+            default:
+                <div></div>
+        }
+    };
 
-    render() {
-        let activeTabContent = (() => {
-            switch (this.props.activeTab) {
-                case 'rooms':
-                    return <RoomList theme={this.props.theme} rooms={this.props.rooms}/>
-                case 'settings':
-                    return <Settings
-                        theme={this.props.theme}
-                        mobile={this.props.mobile}
-                        onThemeChange={this.props.onThemeChange}
-                        onToggleMobile={this.props.onToggleMobile}/>
-                default:
-                    <div></div>
-            }
-        })();
+    let borderRight = props.theme.sidebar.indexOf('inverted') === -1 ? `1px solid ${props.theme.sidebar}` : 'none';
+    let position = props.mobile ? 'absolute' : 'inherit';
+    let height = props.mobile ? 'calc(100% - 4rem)' : '100vh';
+    let animated = props.mobile ? 'animated' : '';
+    let animation = props.visible ? 'slideInLeft' : 'slideOutLeft';
 
-        let borderRight = this.props.theme.sidebar.indexOf('inverted') === -1 ? `1px solid ${this.props.theme.sidebar}` : 'none';
-        let position = this.props.mobile ? 'absolute' : 'inherit';
-        let height = this.props.mobile ? 'calc(100% - 4rem)' : '100vh';
-        let animated = this.props.mobile ? 'animated' : '';
-        let animation = this.props.visible ? 'slideInLeft' : 'slideOutLeft';
-
-        return (
-            <div className={`${sidebar} ${animated} ${animation}`} style={{borderRight, position, height}}>
-                <div className={`${this.props.theme.sidebar} ui basic segment`} style={{height:'100%'}}>
-                    <div className={`${this.props.theme.sidebar} ui two item icon secondary pointing menu`}>
-                        <a className={`${this.props.activeTab === 'rooms' ? 'active' : ''} item`} onClick={this.handleClick('rooms')}>
-                            <i className="users icon"></i>
-                        </a>
-                        <a className={`${this.props.activeTab === 'settings' ? 'active' : ''} item`} onClick={this.handleClick('settings')}>
-                            <i className="settings icon"></i>
-                        </a>
-                    </div>
-                    {activeTabContent}
-                </div>
+    return (
+        <div className={`${sidebar} ${animated} ${animation}`} style={{borderRight, position, height}}>
+            <div className={`${props.theme.sidebar} ui basic segment`} style={{height:'100%'}}>
+                <Tabs/>
+                <ActiveTabContent/>
             </div>
-        );
-    }
+        </div>
+    );
 }
