@@ -12,9 +12,9 @@ export default class Room extends Component {
         return (
             <div className={room}>
                 {messages.map(message => (
-                    <Message key={message.id} authorId={message.authorId} userId={this.props.userId} text={message.text}/>
+                    <Message theme={this.props.theme} key={message.id} authorId={message.authorId} userId={this.props.userId} text={message.text}/>
                 ))}
-                <ChatBox/>
+                <ChatBox theme={this.props.theme}/>
             </div>
         );
     }

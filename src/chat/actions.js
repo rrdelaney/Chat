@@ -1,3 +1,5 @@
+import themes from './themes';
+
 export const USER = 'USER';
 export const ROOM = 'ROOM';
 export const MESSAGE = 'MESSAGE';
@@ -8,6 +10,8 @@ export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 export const JOIN_ROOM = 'JOIN_ROOM';
 export const CHANGE_TAB = 'CHANGE_TAB';
+export const CHANGE_THEME = 'CHANGE_THEME';
+export const TOGGLE_MOBILE = 'TOGGLE_MOBILE';
 
 export function addMessage(roomId, text, authorId) {
     return {
@@ -58,5 +62,20 @@ export function setActiveTab(tab) {
     return {
         type: CHANGE_TAB,
         tab
+    };
+}
+
+export function changeTheme(themeName) {
+    localStorage.setItem('chat-theme', themeName);
+
+    return {
+        type: CHANGE_THEME,
+        theme: themes[themeName] || themes.chat
+    };
+}
+
+export function toggleMobile() {
+    return {
+        type: TOGGLE_MOBILE
     };
 }

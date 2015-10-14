@@ -1,12 +1,13 @@
 import { combineReducers } from 'redux';
 import { List, Set } from 'immutable';
-import { MESSAGE, ROOM, USER, ADD_MESSAGE, CREATE_ROOM, CREATE_USER, LOGIN, LOGOUT, JOIN_ROOM, CHANGE_TAB } from './actions';
+import { MESSAGE, ROOM, USER, ADD_MESSAGE, CREATE_ROOM, CREATE_USER, LOGIN, LOGOUT, JOIN_ROOM, CHANGE_TAB, CHANGE_THEME, TOGGLE_MOBILE } from './actions';
 import { login, logout } from './login';
 import dataset from '../data';
+import themes from './themes';
 
 let homeroom = {
     name: 'Homeroom',
-    type: ROOM
+    type: ROOM,
 };
 
 let initialEntities = (function getInitialEntities(dataset) {
@@ -40,7 +41,9 @@ let initialEntities = (function getInitialEntities(dataset) {
 
 let initialState = {
     id: undefined,
-    activeTab: 'rooms'
+    activeTab: 'rooms',
+    theme: themes[localStorage.getItem('chat-theme') || 'chat'],
+    mobile: document.body.clientWidth < 500
 };
 
 function entities(state = List(initialEntities), action) {
@@ -94,7 +97,17 @@ function app(state = initialState, action) {
             return {
                 ...state,
                 activeTab: action.tab
-            }
+            };
+        case CHANGE_THEME:
+            return {
+                ...state,
+                theme: action.theme
+            };
+        case TOGGLE_MOBILE:
+            return {
+                ...state,
+                mobile: !state.mobile
+            };
         default:
             return state;
     }

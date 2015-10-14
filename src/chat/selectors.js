@@ -6,7 +6,9 @@ export default function select(state) {
         messages: messages(state),
         rooms: rooms(state),
         user: user(state),
-        activeTab: activeTab(state)
+        activeTab: activeTab(state),
+        theme: theme(state),
+        mobile: mobile(state)
     };
 }
 
@@ -35,4 +37,12 @@ function user(state) {
 
 function activeTab(state) {
     return state.app.activeTab;
+}
+
+function theme(state) {
+    return state.app.theme;
+}
+
+function mobile(state) {
+    return state.app.mobile;
 }

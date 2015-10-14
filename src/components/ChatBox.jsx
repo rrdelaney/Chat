@@ -5,7 +5,7 @@ export default class ChatBox extends Component {
     render() {
         return (
             <div className={`${chatBox} ui left action input`}>
-                <button className="ui blue labeled icon button">
+                <button className={`${this.props.theme.sendButton} ui labeled icon button`}>
                     <i className="send icon"></i>
                     Send
                 </button>
