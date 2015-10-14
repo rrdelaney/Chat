@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { chatBox } from './ChatBox.css';
+import React, { Component } from 'react'
+import { chatBox } from './ChatBox.css'
 
 export default class ChatBox extends Component {
     render() {

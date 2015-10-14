@@ -2,13 +2,12 @@
 
 let path = require('path');
 let webpack = require('webpack');
-let config = require('./config');
 
 module.exports = {
-    entry: path.join(__dirname, config.src, config.js.src),
+    entry: path.join(__dirname, 'src', 'index.jsx'),
     output: {
-        path: path.join(__dirname, config.target),
-        filename: config.js.target,
+        path: path.join(__dirname, 'target'),
+        filename: 'app.js',
     },
     module: {
         loaders: [

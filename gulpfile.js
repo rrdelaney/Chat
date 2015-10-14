@@ -5,14 +5,13 @@ let gulp = require('gulp');
 let gutil = require('gulp-util');
 let webpack = require('webpack');
 let conf = require('./webpack.config');
-let build = require('./config');
 let del = require('del');
 let express = require('express');
 
 gulp.task('prepare', function(callback) {
    del('target').then(function() {
-       gulp.src(path.join(build.src, 'index.html'))
-           .pipe(gulp.dest(build.target));
+       gulp.src(path.join('src', 'index.html'))
+           .pipe(gulp.dest('target'));
 
        callback();
    });
@@ -64,7 +63,7 @@ gulp.task('debug', ['prepare'], function() {
     app.use(require('webpack-hot-middleware')(compiler));
 
     app.get('*', function(req, res) {
-        res.sendFile(path.join(__dirname, build.src, 'index.html'));
+        res.sendFile(path.join(__dirname, 'src', 'index.html'));
     });
 
     app.listen(3000, 'localhost', function(err) {

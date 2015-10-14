@@ -1,5 +1,5 @@
-import React from 'react';
-import { own, messageContainer, message } from './Message.css';
+import React from 'react'
+import { own, messageContainer, message } from './Message.css'
 
 export default function Message({text, authorId, userId, theme}) {
     if (authorId === userId) {

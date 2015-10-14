@@ -1,7 +1,7 @@
 .sidebar {
-    height: 100vh;
     flex-grow: 1;
     flex-basis: auto;
-    min-width: 200px;
+    min-width: 250px;
     border-right: 1px solid grey;
+    z-index: 100;
 }

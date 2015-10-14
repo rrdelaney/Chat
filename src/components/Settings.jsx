@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 export default function Settings({theme, mobile, onThemeChange, onToggleMobile}) {
     let changeTheme = (name) => function() {
@@ -19,15 +19,15 @@ export default function Settings({theme, mobile, onThemeChange, onToggleMobile})
 
     let MobileSelection = () => <div className="ui segment">
         <div className="ui checkbox">
-            <input type="checkbox" checked={mobile}/>
+            <input type="checkbox" checked={mobile} onChange={onToggleMobile}/>
             <label>Use Mobile</label>
         </div>
     </div>
 
     return <div className={`${theme.sidebar} ui list`}>
-        <h4>Layout</h4>
+        <h3>Layout</h3>
         <MobileSelection/>
-        <h4>Theme</h4>
+        <h3>Theme</h3>
         <ThemePicker/>
     </div>
 }

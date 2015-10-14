@@ -1,6 +1,8 @@
 .chatBox {
     height: 3.5rem;
-    margin-top: auto;
+    position: absolute !important;
+    bottom: 0;
+    width: 100%;
 }
 
 .chatBox input {

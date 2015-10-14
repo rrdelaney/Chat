@@ -5,4 +5,11 @@
 .chat {
     display: flex;
     align-items: stretch;
+    flex: 1 1 auto;
+}
+
+.chatContainer {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
 }

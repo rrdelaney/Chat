@@ -1,9 +1,9 @@
-import { combineReducers } from 'redux';
-import { List, Set } from 'immutable';
-import { MESSAGE, ROOM, USER, ADD_MESSAGE, CREATE_ROOM, CREATE_USER, LOGIN, LOGOUT, JOIN_ROOM, CHANGE_TAB, CHANGE_THEME, TOGGLE_MOBILE } from './actions';
-import { login, logout } from './login';
-import dataset from '../data';
-import themes from './themes';
+import { combineReducers } from 'redux'
+import { List, Set } from 'immutable'
+import { MESSAGE, ROOM, USER, ADD_MESSAGE, CREATE_ROOM, CREATE_USER, LOGIN, LOGOUT, JOIN_ROOM, CHANGE_TAB, CHANGE_THEME, TOGGLE_MOBILE, TOGGLE_SIDEBAR } from './actions'
+import { login, logout } from './login'
+import dataset from '../data'
+import themes from './themes'
 
 let homeroom = {
     name: 'Homeroom',
@@ -43,7 +43,8 @@ let initialState = {
     id: undefined,
     activeTab: 'rooms',
     theme: themes[localStorage.getItem('chat-theme') || 'chat'],
-    mobile: document.body.clientWidth < 500
+    mobile: document.body.clientWidth < 500,
+    showSidebar: document.body.clientWidth >= 500
 };
 
 function entities(state = List(initialEntities), action) {
@@ -107,6 +108,11 @@ function app(state = initialState, action) {
             return {
                 ...state,
                 mobile: !state.mobile
+            };
+        case TOGGLE_SIDEBAR:
+            return {
+                ...state,
+                showSidebar: !state.showSidebar
             };
         default:
             return state;

@@ -1,4 +1,4 @@
-import { USER, ROOM, MESSAGE } from './actions';
+import { USER, ROOM, MESSAGE } from './actions'
 
 export default function select(state) {
     return {
@@ -8,7 +8,8 @@ export default function select(state) {
         user: user(state),
         activeTab: activeTab(state),
         theme: theme(state),
-        mobile: mobile(state)
+        mobile: mobile(state),
+        showSidebar: showSidebar(state)
     };
 }
 
@@ -45,4 +46,8 @@ function theme(state) {
 
 function mobile(state) {
     return state.app.mobile;
+}
+
+function showSidebar(state) {
+    return state.app.showSidebar;
 }

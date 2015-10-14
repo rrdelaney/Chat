@@ -1,17 +1,18 @@
-import themes from './themes';
+import themes from './themes'
 
-export const USER = 'USER';
-export const ROOM = 'ROOM';
-export const MESSAGE = 'MESSAGE';
-export const ADD_MESSAGE = 'ADD_MESSAGE';
-export const CREATE_ROOM = 'CREATE_ROOM';
-export const CREATE_USER = 'CREATE_USER';
-export const LOGIN = 'LOGIN';
-export const LOGOUT = 'LOGOUT';
-export const JOIN_ROOM = 'JOIN_ROOM';
-export const CHANGE_TAB = 'CHANGE_TAB';
-export const CHANGE_THEME = 'CHANGE_THEME';
-export const TOGGLE_MOBILE = 'TOGGLE_MOBILE';
+export const USER = 'USER'
+export const ROOM = 'ROOM'
+export const MESSAGE = 'MESSAGE'
+export const ADD_MESSAGE = 'ADD_MESSAGE'
+export const CREATE_ROOM = 'CREATE_ROOM'
+export const CREATE_USER = 'CREATE_USER'
+export const LOGIN = 'LOGIN'
+export const LOGOUT = 'LOGOUT'
+export const JOIN_ROOM = 'JOIN_ROOM'
+export const CHANGE_TAB = 'CHANGE_TAB'
+export const CHANGE_THEME = 'CHANGE_THEME'
+export const TOGGLE_MOBILE = 'TOGGLE_MOBILE'
+export const TOGGLE_SIDEBAR = 'TOGGLE_SIDEBAR'
 
 export function addMessage(roomId, text, authorId) {
     return {
@@ -77,5 +78,11 @@ export function changeTheme(themeName) {
 export function toggleMobile() {
     return {
         type: TOGGLE_MOBILE
+    };
+}
+
+export function toggleSidebar() {
+    return {
+        type: TOGGLE_SIDEBAR
     };
 }
