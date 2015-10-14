@@ -33,11 +33,9 @@ export default function Sidebar(props) {
     let borderRight = props.theme.sidebar.indexOf('inverted') === -1 ? `1px solid ${props.theme.sidebar}` : 'none';
     let position = props.mobile ? 'absolute' : 'inherit';
     let height = props.mobile ? 'calc(100% - 4rem)' : '100vh';
-    let animated = props.mobile ? 'animated' : '';
-    let animation = props.visible ? 'slideInLeft' : 'slideOutLeft';
 
     return (
-        <div className={`${sidebar} ${animated} ${animation}`} style={{borderRight, position, height}}>
+        <div className={`${sidebar}`} style={{borderRight, position, height}}>
             <div className={`${props.theme.sidebar} ui segment`} style={{height:'100%'}}>
                 <Tabs/>
                 <ActiveTabContent/>

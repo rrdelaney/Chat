@@ -19,15 +19,15 @@ export default class App extends Component {
                                     onToggleSidebar={() => dispatch(toggleSidebar())}/>
                 }
                 <div className={chat}>
-                    <Sidebar
+                    {!showSidebar ? null : <Sidebar
                         theme={theme}
                         rooms={rooms}
                         activeTab={activeTab}
                         mobile={mobile}
-                        visible={showSidebar}
                         onTabChange={tabName => dispatch(setActiveTab(tabName))}
                         onThemeChange={themeName => dispatch(changeTheme(themeName))}
                         onToggleMobile={() => dispatch(toggleMobile())}/>
+                    }
                     <Room
                         theme={theme}
                         mobile={mobile}
