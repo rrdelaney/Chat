@@ -11,7 +11,7 @@ export default {
         userColor: 'teal',
         messageColor: 'blue',
         sendButton: '',
-        sidebar: 'inverted grey'
+        sidebar: ''
     },
     royal: {
         name: 'Royal',
