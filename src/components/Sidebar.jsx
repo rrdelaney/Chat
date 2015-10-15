@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { sidebar } from './Sidebar.css'
+import UserPane from './UserPane'
 import RoomList from './RoomList'
 import Settings from './Settings'
 
@@ -18,11 +19,15 @@ export default function Sidebar(props) {
     let ActiveTabContent = () => {
         switch (props.activeTab) {
             case 'rooms':
-                return <RoomList
-                    theme={props.theme}
-                    rooms={props.rooms}
-                    currentRoom={props.currentRoom}
-                    onJoinRoom={props.onJoinRoom}/>
+                return <div>
+                    <UserPane theme={props.theme} user={props.user}/>
+                    <div className="ui divider"></div>
+                    <RoomList
+                        theme={props.theme}
+                        rooms={props.rooms}
+                        currentRoom={props.currentRoom}
+                        onJoinRoom={props.onJoinRoom}/>
+                </div>
             case 'settings':
                 return <Settings
                     theme={props.theme}

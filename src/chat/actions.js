@@ -45,10 +45,9 @@ export function login(userId, password) {
     }
 }
 
-export function logout(userId) {
+export function logout() {
     return {
-        type: LOGOUT,
-        userId
+        type: LOGOUT
     }
 }
 
