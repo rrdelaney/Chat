@@ -15,7 +15,9 @@ export default class App extends Component {
 
         let nav = !mobile ? null : <Navbar
             theme={theme}
-            onToggleSidebar={() => dispatch(toggleSidebar())}/>
+            onToggleSidebar={() => dispatch(toggleSidebar())}
+            isLoggedIn={user.id !== undefined}
+            sidebarVisible={showSidebar}/>
 
         let sidebar = <ReactCSSTransitionGroup transitionName="slide-left" transitionEnterTimeout={500} transitionLeaveTimeout={500}>
             {!showSidebar ? null : <Sidebar

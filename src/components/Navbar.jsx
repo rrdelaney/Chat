@@ -6,7 +6,9 @@ export default function Navbar(props) {
 
     return <div className={`${navbar} ${props.theme.sidebar} ui borderless icon menu`} style={{borderBottom: borderColor}}>
         <a className="item" onClick={props.onToggleSidebar}>
-            <i className="large sidebar icon"></i>
+            {props.isLoggedIn ? <i className="large sidebar icon"></i> :
+                (props.sidebarVisible ? <i className="large angle left icon"></i> : 'Log In')
+            }
         </a>
     </div>
 }

@@ -49,8 +49,8 @@ let initialState = () => ({
     activeTab: 'rooms',
     roomId: 0,
     theme: themes[localStorage.getItem('chat-theme') || 'chat'],
-    mobile: document.body.clientWidth < 500,
-    showSidebar: document.body.clientWidth >= 500
+    mobile: document.body.clientWidth < 600,
+    showSidebar: document.body.clientWidth >= 600
 });
 
 function entities(state = List(initialEntities), action) {
