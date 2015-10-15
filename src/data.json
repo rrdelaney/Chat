@@ -63,6 +63,11 @@
             "id": 6,
             "name": "Kat",
             "type": "user"
+        },
+        {
+            "id": 7,
+            "name": "Random",
+            "type": "room"
         }
     ]
 }

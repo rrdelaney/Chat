@@ -20,7 +20,7 @@ export default class Room extends Component {
                     authorName={this.props.users.find(user => user.id === message.authorId).name}
                     userId={this.props.userId}
                     text={message.text}/>
-                ) : <span>Looks like there aren't any messages here!</span>}
+            ) : <div style={{textAlign: 'center', paddingTop: '3rem'}}>Looks like there aren't any messages here!</div>}
                 <ChatBox theme={this.props.theme}/>
             </div>
         );

@@ -27,10 +27,15 @@ let initialEntities = (function getInitialEntities(dataset) {
                             text: entity.text,
                             type: MESSAGE
                         };
-                    case "user":
+                    case 'user':
                         return {
                             name: entity.name,
                             type: USER
+                        };
+                    case 'room':
+                        return {
+                            name: entity.name,
+                            type: ROOM
                         };
                     default:
                         return undefined;
@@ -39,14 +44,14 @@ let initialEntities = (function getInitialEntities(dataset) {
             .unshift(homeroom)
 })(dataset);
 
-let initialState = {
+let initialState = () => ({
     id: undefined,
     activeTab: 'rooms',
     roomId: 0,
     theme: themes[localStorage.getItem('chat-theme') || 'chat'],
     mobile: document.body.clientWidth < 500,
     showSidebar: document.body.clientWidth >= 500
-};
+});
 
 function entities(state = List(initialEntities), action) {
     switch (action.type) {
@@ -73,20 +78,20 @@ function entities(state = List(initialEntities), action) {
     }
 }
 
-function app(state = initialState, action) {
+function app(state = initialState(), action) {
     switch (action.type) {
         case LOGIN:
             if (login(action.userId, action.password)) {
                 return {
-                    ...initialState,
+                    ...initialState(),
                     id: action.userId
                 };
             } else {
-                return initialState;
+                return initialState();
             }
         case LOGOUT:
             if (logout()) {
-                return initialState;
+                return initialState();
             } else {
                 return state;
             }

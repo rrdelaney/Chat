@@ -20,7 +20,7 @@ export default function Sidebar(props) {
         switch (props.activeTab) {
             case 'rooms':
                 return <div>
-                    <UserPane theme={props.theme} user={props.user}/>
+                    <UserPane theme={props.theme} user={props.user} onLogin={props.onLogin} onLogout={props.onLogout}/>
                     <div className="ui divider"></div>
                     <RoomList
                         theme={props.theme}

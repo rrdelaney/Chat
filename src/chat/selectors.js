@@ -5,7 +5,7 @@ export default function select(state) {
         users: users(state),
         messages: messages(state),
         rooms: rooms(state),
-        user: users(state).findLast(user => user.id === state.app.id) || {},
+        user: users(state).findLast(user => user.id.toString() === state.app.id) || {},
         roomId: state.app.roomId,
         activeTab: state.app.activeTab,
         theme: state.app.theme,
