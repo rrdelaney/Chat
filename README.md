@@ -19,7 +19,7 @@ Because of that, the following cannot happen:
 
 ```
 npm install
-gulp build
+gulp
 cd target
 python -m SimpleHTTPServer 8000
 ```

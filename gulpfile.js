@@ -73,4 +73,6 @@ gulp.task('debug', ['prepare'], function() {
             console.log('Listening at http://localhost:3000');
         }
     });
-})
+});
+
+gulp.task('default', ['build']);
