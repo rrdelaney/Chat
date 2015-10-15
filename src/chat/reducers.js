@@ -42,6 +42,7 @@ let initialEntities = (function getInitialEntities(dataset) {
 let initialState = {
     id: undefined,
     activeTab: 'rooms',
+    roomId: 0,
     theme: themes[localStorage.getItem('chat-theme') || 'chat'],
     mobile: document.body.clientWidth < 500,
     showSidebar: document.body.clientWidth >= 500
@@ -92,7 +93,7 @@ function app(state = initialState, action) {
         case JOIN_ROOM:
             return {
                 ...state,
-                id: state.id,
+                roomId: action.roomId,
             };
         case CHANGE_TAB:
             return {

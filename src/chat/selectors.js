@@ -5,11 +5,12 @@ export default function select(state) {
         users: users(state),
         messages: messages(state),
         rooms: rooms(state),
-        user: user(state),
-        activeTab: activeTab(state),
-        theme: theme(state),
-        mobile: mobile(state),
-        showSidebar: showSidebar(state)
+        user: state.app.userId,
+        roomId: state.app.roomId,
+        activeTab: state.app.activeTab,
+        theme: state.app.theme,
+        mobile: state.app.mobile,
+        showSidebar: state.app.showSidebar
     };
 }
 
@@ -30,24 +31,4 @@ function rooms(state) {
     return state.entities
                 .map((entity, id) => ({ ...entity, id }))
                 .filter(entity => entity.type === ROOM);
-}
-
-function user(state) {
-    return state.app.userId;
-}
-
-function activeTab(state) {
-    return state.app.activeTab;
-}
-
-function theme(state) {
-    return state.app.theme;
-}
-
-function mobile(state) {
-    return state.app.mobile;
-}
-
-function showSidebar(state) {
-    return state.app.showSidebar;
 }

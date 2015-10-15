@@ -4,7 +4,6 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import 'semantic-ui-css/semantic'
 import 'semantic-ui-css/semantic.css'
-import 'animate.css/animate.css'
 import App from './App'
 import { reducers } from './chat'
 

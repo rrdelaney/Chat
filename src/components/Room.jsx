@@ -13,14 +13,14 @@ export default class Room extends Component {
 
         return (
             <div className={room} style={{height}}>
-                {messages.map(message => <Message
+                {messages.size > 0 ? messages.map(message => <Message
                     theme={this.props.theme}
                     key={message.id}
                     authorId={message.authorId}
                     authorName={this.props.users.find(user => user.id === message.authorId).name}
                     userId={this.props.userId}
                     text={message.text}/>
-                )}
+                ) : <span>Looks like there aren't any messages here!</span>}
                 <ChatBox theme={this.props.theme}/>
             </div>
         );

@@ -18,7 +18,11 @@ export default function Sidebar(props) {
     let ActiveTabContent = () => {
         switch (props.activeTab) {
             case 'rooms':
-                return <RoomList theme={props.theme} rooms={props.rooms}/>
+                return <RoomList
+                    theme={props.theme}
+                    rooms={props.rooms}
+                    currentRoom={props.currentRoom}
+                    onJoinRoom={props.onJoinRoom}/>
             case 'settings':
                 return <Settings
                     theme={props.theme}

@@ -28,10 +28,10 @@
     "webpack-hot-middleware": "^2.3.0"
   },
   "dependencies": {
-    "animate.css": "^3.4.0",
     "es6-promise": "^3.0.2",
     "immutable": "^3.7.5",
     "react": "^0.14.0",
+    "react-addons-css-transition-group": "^0.14.0",
     "react-dom": "^0.14.0",
     "react-redux": "^3.1.0",
     "redux": "^3.0.2",
