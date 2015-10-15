@@ -84,7 +84,8 @@ function app(state = initialState(), action) {
             if (login(action.userId, action.password)) {
                 return {
                     ...initialState(),
-                    id: action.userId
+                    id: action.userId,
+                    mobile: state.mobile
                 };
             } else {
                 return initialState();
