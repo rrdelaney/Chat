@@ -1,21 +1,25 @@
 # Chat
 
-Sample React chat client.
+Sample React chat client :whale:
 
-# Bootstraping
+Built with
+- React
+- Redux
+- Immutable.js
+- Semantic UI
+
+There is no backend, this is just a purely front-end project.
+Because of that, the following cannot happen:
+- You cannot send messages
+- You can only log in as User ID's 5 and 6 (any password will work for both)
+- An incorrect login is __not__ marked as wrong
+- You cannot create new rooms
+
+# Building
 
 ```
 npm install
-```
-
-# Run in debug mode
-
-```
-gulp debug
-```
-
-# Build for production
-
-```
 gulp build
+cd target
+python -m SimpleHTTPServer 8000
 ```
