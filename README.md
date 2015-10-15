@@ -1,4 +1,4 @@
-# Chat
+# [Chat](http://rdel.io/chat)
 
 Sample React chat client :whale:
 
